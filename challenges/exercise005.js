@@ -1,7 +1,19 @@
 export const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  if (nums === undefined) throw new Error("nums is required");
+  if (n === undefined) throw new Error("n is required");
+
+  //Find the position following n
+  const indexNumber = (nums.indexOf(n)+1);
+
+  //Return the number after n, if it exists:
+  
+
+    if (nums[indexNumber] === undefined) {return null}
+  
+    else {return (indexNumber > 0 ? (nums[indexNumber]) : null)}
+
 };
 
 export const count1sand0s = (str) => {
