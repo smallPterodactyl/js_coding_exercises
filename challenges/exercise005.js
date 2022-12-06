@@ -9,16 +9,38 @@ export const findNextNumber = (nums, n) => {
 
   //Return the number after n, if it exists:
   
-
-    if (nums[indexNumber] === undefined) {return null}
-  
-    else {return (indexNumber > 0 ? (nums[indexNumber]) : null)}
+  if (nums[indexNumber] === undefined) {return null}
+  else {return (indexNumber > 0 ? (nums[indexNumber]) : null)}
 
 };
 
 export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+
+  /* 
+   * The 'counting' object stores both our output and
+   * a parsing-counting function as objects.
+   */
+
+  const counting = {
+    counters: {1: 0, 0: 0},
+
+    counterObjects (numberStr) {
+      for (let n = 0; n < numberStr.length; n++) {
+        if (numberStr.charAt(n) === '1') {
+          counting.counters['1'] += 1;
+          }
+        else {
+          counting.counters['0'] += 1;
+          }
+       }
+    return counting.counters
+
+    } 
+}
+
+return counting.counterObjects(str);
+
 };
 
 export const reverseNumber = (n) => {
