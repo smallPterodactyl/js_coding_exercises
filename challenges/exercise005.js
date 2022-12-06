@@ -38,15 +38,32 @@ export const count1sand0s = (str) => {
 
     } 
 }
-
 return counting.counterObjects(str);
-
 };
+
+
 
 export const reverseNumber = (n) => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  
+/* 
+    * Work from the end of the input string to the beginning
+    * to build an return string: conversion to Number will
+    * remove any leading '0' characters
+   */
+  
+let nReversed = '';
+
+for (let i = (n.toString().length)-1; i >=  0; i--) {
+ nReversed = nReversed + (n.toString()).charAt(i);
+}
+
+return (Number(nReversed));
+
+
 };
+
+
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
