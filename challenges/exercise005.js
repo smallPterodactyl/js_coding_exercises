@@ -8,7 +8,6 @@ export const findNextNumber = (nums, n) => {
   const indexNumber = (nums.indexOf(n)+1);
 
   //Return the number after n, if it exists:
-  
   if (nums[indexNumber] === undefined) {return null}
   else {return (indexNumber > 0 ? (nums[indexNumber]) : null)}
 
@@ -18,8 +17,8 @@ export const count1sand0s = (str) => {
   if (str === undefined) throw new Error("str is required");
 
   /* 
-   * The 'counting' object stores both our output and
-   * a parsing-counting function as objects.
+   * The 'counting' object contains the output object and
+   * a parsing-counting function object.
    */
 
   const counting = {
@@ -35,12 +34,15 @@ export const count1sand0s = (str) => {
           }
        }
     return counting.counters
-
     } 
 }
+/* 
+ * The main function summons the object method: 
+ * the object could be extended / simplified
+ * further in future
+ */
 return counting.counterObjects(str);
 };
-
 
 
 export const reverseNumber = (n) => {
@@ -60,14 +62,23 @@ for (let i = (n.toString().length)-1; i >=  0; i--) {
 
 return (Number(nReversed));
 
-
 };
-
 
 
 export const sumArrays = (arrs) => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  
+  //Flatten the arrays for easier summing
+  const flattened = arrs.flatMap(num => num);
+
+  const initialValue = 0;
+
+  //Return the summed array values
+  return (flattened.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
+  ));
+ 
 };
 
 export const arrShift = (arr) => {
@@ -112,4 +123,4 @@ export  const getWordFrequencies = (str) => {
   return (countedWords);
 };
 
-// I adapted the above code heavily from Mozilla documentation!
+// I adapted the code heavily from Mozilla documentation!
