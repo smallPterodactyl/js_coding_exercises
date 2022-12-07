@@ -81,7 +81,24 @@ export const findNeedle = (haystack, searchTerm) => {
   // Your code here!
 };
 
-export const getWordFrequencies = (str) => {
+export  const getWordFrequencies = (str) => {
   if (str === undefined) throw new Error("str is required");
-  // Your code here!
+
+   // Remove punctuation
+   const punctuationless = str.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g, "");
+
+   // Create a uniform-case array to ensure accurate matching
+   const wordArray =  (punctuationless.toLowerCase()).split(' ');
+  
+   // Use a reduce function to count the number of repeating words
+   const countedWords = wordArray.reduce((allWords, word) => {
+    const currCount = allWords[word] ?? 0;
+    return {
+      ...allWords,
+      [word]: currCount + 1,
+    };
+  }, {}); 
+  return (countedWords);
 };
+
+// I adapted the above code heavily from Mozilla documentation!
