@@ -83,7 +83,22 @@ export const sumArrays = (arrs) => {
 
 export const arrShift = (arr) => {
   if (arr === undefined) throw new Error("arr is required");
-  // Your code here!
+
+ /*
+  * We save the first and last array values,
+  * and splice each onto the other's position
+  * in the array. ISN'T THERE A BETTER WAY
+  * TO DO THIS?!
+ */
+
+  const first = arr[0];
+  const last = arr [(arr.length)-1];
+
+  const _first = arr.splice(0,1,last);
+  const _last = arr.splice (-1,1,first);
+
+  return arr;
+
 };
 
 export const findNeedle = (haystack, searchTerm) => {
