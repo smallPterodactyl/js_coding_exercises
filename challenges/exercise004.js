@@ -1,64 +1,44 @@
 export function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
 
-  // Use the array filter method, with filter condition of < 1
-
-  const smallNums = nums.filter(num => num < 1);
+  return nums.filter(n => n < 1);
   
 }
 
 export function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
 
-  /* Create a simple arrow function (word => word.charAt(0) === char)
-   * to compare the first letter of each name with the char parameter.
-   * Use this function with the array filter method.
-   */
-
-  const namesWithSameInitial = names.filter(name => name.charAt(0) === char);
-
-  return namesWithSameInitial;
+  return names.filter(name => name.charAt(0) === char);
 }
 
 export function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
 
-/* Try to use startsWith() in combination with the filter array method.
- * Add a space after 'to' to account for the main verb.
- */
+  //Verb definition may change in future
+  const VERB_ID = 'to ';
 
-const onlyVerbs = words.filter (word => word.startsWith('to '));
+  return (words.filter(word => word.slice(0,3) === VERB_ID ? word : null))
 
 }
 
 export function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
 
-  //Try to filter out using isInteger approach
+  return nums.filter (num => Number.isInteger(num)? num : null)
 
-  const onlyInts = nums.filter (num => Number.isInteger(num) === true)
+}
 
+export function getSquareRoots(nums) {
+  if (!nums) throw new Error("nums is required");
+
+  return ((nums.map(num => Number((Math.sqrt(num)).toFixed(2)))));
 
 }
 
 export function getCities(users) {
   if (!users) throw new Error("users is required");
   // Your code here
-}
-
-export function getSquareRoots(nums) {
-  if (!nums) throw new Error("nums is required");
-  // Your code here
-
-//Combine array map method with Math.sqrt
-
-  const sqrtArray = nums.map(num => Math.sqrt(num));
-
 }
 
 export function findSentencesContaining(sentences, str) {
@@ -70,8 +50,6 @@ export function findSentencesContaining(sentences, str) {
 export function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
   // Your code here
-
-
 
 
 }
